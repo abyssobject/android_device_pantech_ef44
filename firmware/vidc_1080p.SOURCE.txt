@@ -1,0 +1,1 @@
+Source: https://raw.githubusercontent.com/TheMuppets/proprietary_vendor_motorola/cm-14.1/qcom-common/proprietary/etc/firmware/vidc_1080p.fw

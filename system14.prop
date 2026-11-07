@@ -1,0 +1,18 @@
+#
+# system.prop for ef44
+#
+
+persist.sys.timezone=Asia/Seoul
+persist.sys.language=ko
+persist.sys.region=KR
+persist.sys.country=KR
+
+# Wi-Fi
+wifi.interface=wlan0
+
+# Graphics (Adreno 225)
+debug.composition.type=dyn
+debug.hwui.use_buffer_age=false
+
+# Broadcom BCM4334 over UART: not a Qualcomm SMD controller, use plain H4
+qcom.bluetooth.soc=brcm

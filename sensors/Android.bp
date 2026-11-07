@@ -1,0 +1,12 @@
+cc_library_shared {
+    name: "sensors.ef44",
+    relative_install_path: "hw",
+    vendor: true,
+    srcs: ["sensors_wrapper.cpp"],
+    header_libs: ["libhardware_headers"],
+    shared_libs: [
+        "libdl",
+        "liblog",
+    ],
+    cflags: ["-Wall", "-Werror"],
+}

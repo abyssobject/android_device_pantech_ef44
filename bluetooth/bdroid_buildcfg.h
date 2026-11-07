@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The Android Open Source Project
+ * Copyright (C) 2026 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,12 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME   "Xperia V"
+#define BTM_DEF_LOCAL_NAME   "VEGA S5"
 #define BTA_DISABLE_DELAY 1000 /* in milliseconds */
+#define BLE_VND_INCLUDED   FALSE
+
+/* 3.4 kernel: alarmtimer is not built, so timer_create(CLOCK_BOOTTIME_ALARM)
+ * fails and osi aborts; use CLOCK_BOOTTIME plus a wakelock instead */
+#define KERNEL_MISSING_CLOCK_BOOTTIME_ALARM TRUE
 
 #endif

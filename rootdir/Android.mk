@@ -1,0 +1,95 @@
+LOCAL_PATH := $(call my-dir)
+
+# fstab: in /vendor/etc for mount_all, and in the ramdisk for first-stage mount
+include $(CLEAR_VARS)
+LOCAL_MODULE       := fstab.qcom
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := fstab.qcom
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := fstab.ramdisk
+LOCAL_MODULE_STEM  := fstab.qcom
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := fstab.qcom
+LOCAL_MODULE_PATH  := $(TARGET_RAMDISK_OUT)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := init.qcom.rc
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := init.qcom.rc
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := init.ef44.usb.rc
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := init.ef44.usb.rc
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := init.ef44.debug.rc
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := init.ef44.debug.rc
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ueventd.qcom.rc
+LOCAL_MODULE_STEM  := ueventd.rc
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := ueventd.qcom.rc
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := init.qcom.bt.sh
+LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_SRC_FILES    := init.qcom.bt.sh
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_EXECUTABLES)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := init.ef44.modem.sh
+LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_SRC_FILES    := init.ef44.modem.sh
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_EXECUTABLES)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := init.ef44.power.rc
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := init.ef44.power.rc
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ef44-logsync.sh
+LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_SRC_FILES    := ef44-logsync.sh
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_EXECUTABLES)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ef44-rtc.sh
+LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_SRC_FILES    := ef44-rtc.sh
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_EXECUTABLES)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ef44-bdaddr.sh
+LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_SRC_FILES    := ef44-bdaddr.sh
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_EXECUTABLES)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := ef44-camreset.sh
+LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_SRC_FILES    := ef44-camreset.sh
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_EXECUTABLES)
+include $(BUILD_PREBUILT)

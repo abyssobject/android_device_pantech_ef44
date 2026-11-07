@@ -1,0 +1,118 @@
+# Copyright (c) 2011, Code Aurora Forum.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# Function keys
+key 59    MENU                  WAKE
+key 60    HOME                  WAKE
+key 61    CALL                  WAKE
+key 62    BACK                  WAKE
+key 63    ENDCALL               WAKE
+key 64    MEDIA_NEXT            WAKE
+key 65    MEDIA_PLAY_PAUSE      WAKE
+key 66    MEDIA_PREVIOUS        WAKE
+key 67    MEDIA_STOP            WAKE
+key 68    CAMERA
+key 87    POWER                 WAKE
+key 217   SEARCH                WAKE
+
+# Row 2
+key 2     1                 WAKE
+key 3     2                 WAKE
+key 4     3                 WAKE
+key 5     4                 WAKE
+key 6     5                 WAKE
+key 7     6                 WAKE
+key 8     7                 WAKE
+key 9     8                 WAKE
+key 10    9                 WAKE
+key 11    0                 WAKE
+key 110   MENU              WAKE
+key 102   HOME              WAKE
+
+# Row 3
+key 16    Q                 WAKE
+key 17    W                 WAKE
+key 18    E                 WAKE
+key 19    R                 WAKE
+key 20    T                 WAKE
+key 21    Y                 WAKE
+key 22    U                 WAKE
+key 23    I                 WAKE
+key 24    O                 WAKE
+key 25    P                 WAKE
+key 158   BACK              WAKE
+key 104   DPAD_UP           WAKE
+
+# Row 4
+key 58    SHIFT_LEFT        WAKE
+key 30    A                 WAKE
+key 31    S                 WAKE
+key 32    D                 WAKE
+key 33    F                 WAKE
+key 34    G                 WAKE
+key 35    H                 WAKE
+key 36    J                 WAKE
+key 37    K                 WAKE
+key 38    L                 WAKE
+key 28    ENTER		    WAKE
+key 109   DPAD_DOWN         WAKE
+
+# Row 5
+key 183   SYM               WAKE
+key 44    Z                 WAKE
+key 45    X                 WAKE
+key 46    C                 WAKE
+key 47    V                 WAKE
+key 48    B                 WAKE
+key 49    N                 WAKE
+key 50    M                 WAKE
+key 51    COMMA             WAKE
+key 52    PERIOD            WAKE
+key 103   DPAD_UP           WAKE
+key 107   ENDCALL           WAKE
+key 152   ENDCALL           WAKE
+
+# Row 6
+key 42    SHIFT_LEFT        WAKE
+key 464   MENU              WAKE
+key 29    MENU              WAKE
+key 56    ALT_LEFT          WAKE
+key 151   MENU              WAKE
+key 57    SPACE             WAKE
+key 111   DEL               WAKE
+key 54    SHIFT_RIGHT       WAKE
+key 105   DPAD_LEFT         WAKE
+key 108   DPAD_DOWN         WAKE
+key 106   DPAD_RIGHT        WAKE
+
+# Volume keys
+key 115   VOLUME_UP         WAKE
+key 114   VOLUME_DOWN       WAKE
+
+# Numeric keypad
+key 522   STAR              WAKE
+key 523   POUND             WAKE
+key 355   DEL               WAKE
+#L- Mapping
+key 139   MENU              WAKE
+#SEND Key Mapping
+key 231   CALL              WAKE
+# R+ Mapping
+key 142   HOME              WAKE
+# Camera Keys
+key 766   FOCUS
+key 528   CAMERA
+key 14    DEL               WAKE
+key 41	  GRAVE				WAKE
