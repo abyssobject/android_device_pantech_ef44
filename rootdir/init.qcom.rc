@@ -67,17 +67,10 @@ on post-fs-data
     start sensors
 
 on boot
-    # RT budget for the cpu cgroups: the kernel has RT_GROUP_SCHED and init
-    # creates the groups with cpu.rt_runtime_us 0, so no app or HAL could use
-    # SCHED_FIFO (the Bluetooth stack aborts without it)
-    write /dev/cpuctl/top-app/cpu.rt_runtime_us 100000
-    write /dev/cpuctl/foreground/cpu.rt_runtime_us 100000
-    write /dev/cpuctl/system/cpu.rt_runtime_us 100000
-    write /dev/cpuctl/system-background/cpu.rt_runtime_us 50000
-    write /dev/cpuctl/background/cpu.rt_runtime_us 50000
-    write /dev/cpuctl/camera-daemon/cpu.rt_runtime_us 50000
-    write /dev/cpuctl/nnapi-hal/cpu.rt_runtime_us 50000
-    write /dev/cpuctl/rt/cpu.rt_runtime_us 400000
+    # (No per-cgroup RT budgets here: the kernel is built without
+    # RT_GROUP_SCHED since #68. With it, the cpu cgroups had to be given
+    # cpu.rt_runtime_us for SCHED_FIFO at all, and the foreground group's 10%
+    # throttled the Bluetooth A2DP encoder: Bluetooth audio stuttered.)
 
     # zram swap: ~830 MB of usable RAM is not enough for Android 12 without it
     write /proc/sys/vm/swappiness 100
