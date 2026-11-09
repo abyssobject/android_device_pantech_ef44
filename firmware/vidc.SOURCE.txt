@@ -1,0 +1,1 @@
+﻿vidc.mdt, vidc.b00-vidc.b03: MSM8960 video core PIL firmware from the VEGA S5 (ef44s) CM10 device tree (device_ef44s_cm10/firmware, installed there as /system/etc/firmware/vidc.*).

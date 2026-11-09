@@ -1,0 +1,55 @@
+# Bring-up logging (userdebug/eng only). The kernel's ef44_ramlog keeps the
+# kernel log in RAM across warm resets, readable from TWRP with
+# ef44-port/debug/read-ramlog.sh; mirroring warnings and errors from logcat
+# into the kernel log puts userspace crashes there too.
+#
+# RAM does not survive the phone losing power, so every boot also gets its own
+# directory on /cache (kept by TWRP and by a data wipe): cur/ for the running
+# boot, boot-1/ .. boot-3/ for the ones before. ef44-logsync rewrites the
+# kernel log there and syncs /cache every few seconds, so after a power cut
+# only the last seconds are missing.
+
+#
+# The /cache logging (logcat of all buffers to a file, plus the kernel log
+# rewrite) cost CPU and eMMC writes during every boot, so it is off unless
+# asked for:  setprop persist.ef44.debuglog 1  (and reboot). The RAM log
+# needs nothing and stays on.
+
+# (The per-boot directory rotation used to run in post-fs at every boot, a
+# 0.2 s exec on the way to the boot animation; it only matters with the
+# logging on.)
+on property:persist.ef44.debuglog=1
+    mkdir /cache/ef44log 0775 root log
+    exec - root root -- /system/bin/sh -c "cd /cache/ef44log; rm -rf boot-3; mv boot-2 boot-3; mv boot-1 boot-2; mv cur boot-1; mkdir cur; rm -f logcat*.txt* dmesg*.txt; true"
+    start ef44-logsync
+    start ef44-logcache
+
+service ef44-logsync /system/bin/sh /vendor/bin/ef44-logsync.sh
+    user root
+    group log
+    disabled
+    seclabel u:r:su:s0
+
+service ef44-logkmsg /system/bin/logcat -b main,system,crash,events -v brief -f /dev/kmsg *:W
+    disabled
+    user root
+    group log
+    oneshot
+    seclabel u:r:su:s0
+
+service ef44-logcache /system/bin/logcat -b all -v threadtime -f /cache/ef44log/cur/logcat.txt -r 8192 -n 2
+    disabled
+    user root
+    group log
+    oneshot
+    seclabel u:r:su:s0
+
+# The build puts persist.sys.usb.config=none in the vendor, product and
+# system_ext build.prop, which load after system's mtp,adb; keep adb on.
+on property:persist.sys.usb.config=none
+    setprop persist.sys.usb.config mtp,adb
+
+# The logcat -> kmsg mirror cost 30-70% CPU on this phone; only for debugging
+# early boot (setprop persist.ef44.logkmsg 1)
+on property:init.svc.logd=running && property:persist.ef44.logkmsg=1
+    start ef44-logkmsg

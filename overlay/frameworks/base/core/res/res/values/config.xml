@@ -35,4 +35,37 @@
          config to 7. -->
     <integer name="config_deviceHardwareKeys">64</integer>
 
+    <!-- Backlight to nits mapping for the Sony 4.8" WM panel (approximate).
+         Without it Android 12's LocalDisplayAdapter asked for nits on every
+         brightness change and logged a WTF each time (~500 per boot). -->
+    <integer-array name="config_screenBrightnessBacklight">
+        <item>1</item>
+        <item>255</item>
+    </integer-array>
+    <array name="config_screenBrightnessNits">
+        <item>2.0</item>
+        <item>450.0</item>
+    </array>
+
+    <!-- The WCD9310 MBHC reports the wired headset through the ASoC
+         "Headset Jack" input device (SW_HEADPHONE_INSERT and
+         SW_MICROPHONE_INSERT); there is no h2w switch class. -->
+    <bool name="config_useDevInputEventForAudioJack">true</bool>
+
+    <!-- VEGA Messages (com.pantech.app.mms, launcher/Android.mk) replaces
+         LineageOS Messaging: the default SMS app (role android.app.role.SMS)
+         of a new install -->
+    <string name="config_defaultSms" translatable="false">com.pantech.app.mms</string>
+
+    <!-- ~830 MB of usable RAM: Android 13 kept up to 32 cached apps and ran
+         so short of memory (swap thrashing) that SystemUI missed its input
+         deadlines (ANR, black screen, "System UI has stopped") -->
+    <integer name="config_customizedMaxCachedProcesses">12</integer>
+
+    <!-- kswapd starts reclaiming at min_free_kbytes (3 MB) + extra_free_kbytes;
+         the default extra for 720x1280 (10.8 MB) left 15-25 MB free and the
+         apps themselves reclaiming memory (allocstall ~5000 in 4 minutes:
+         stalls on SystemUI's main thread). 24 MB keeps kswapd ahead. -->
+    <integer name="config_extraFreeKbytesAbsolute">24576</integer>
+
 </resources>

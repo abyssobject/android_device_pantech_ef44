@@ -1,0 +1,6 @@
+# /persist (Pantech calibration and modem data)
+type vendor_persist_file, file_type, vendor_file_type;
+
+# /firmware (the modem partition's vfat image, mounted read-only; the type
+# Qualcomm's sepolicy uses, not in AOSP)
+type firmware_file, fs_type, file_type, vendor_file_type;

@@ -1,5 +1,2 @@
-ro.telephony.default_network=9
-telephony.lteOnGsmDevice=1
-
-# Graphics
+# VEGA S5 (ef44), LineageOS 19.1 system properties
 ro.sf.lcd_density=320

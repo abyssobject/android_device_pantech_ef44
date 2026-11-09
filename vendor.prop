@@ -1,0 +1,10 @@
+# VEGA S5 (ef44), LineageOS 19.1 vendor properties
+ro.vendor.extension_library=libqti-perfd-client.so
+persist.vendor.radio.apm_sim_not_pwdn=1
+
+# RIL: Android 12 rild (PRODUCT_COMPATIBLE_PROPERTY) only reads the vendor.*
+# names; with just rild.libpath it assumed "no RIL" and slept forever (no
+# IRadio, baseband "unknown"). Kept here rather than in device.mk because
+# the args contain a space.
+vendor.rild.libpath=/system/lib/libril-qc-qmi-1.so
+vendor.rild.libargs=-d /dev/smd0
